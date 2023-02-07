@@ -14,7 +14,7 @@ class CarODM extends Car<ICar> {
       seatsQty: { type: Number, required: true },
     });
 
-    super(schema, 'car');
+    super(schema, 'Car');
   }
 }
 

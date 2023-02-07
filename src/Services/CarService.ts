@@ -3,8 +3,8 @@ import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 
 export default class CarService {
-  public createCarDomain(car: ICar): Car {
-    return new Car(car);
+  public createCarDomain(car: ICar): Car | undefined {
+    if (car) return new Car(car);
   }
 
   public async addNewCar(newCardata: ICar) {

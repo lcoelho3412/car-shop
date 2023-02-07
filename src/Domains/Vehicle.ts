@@ -14,7 +14,7 @@ abstract class Vehicle {
     this.year = data.year;
     this.color = data.color;
     this.buyValue = data.buyValue;
-    this.status = data.status || false;
+    this.status = data.status;
   }
 }
 

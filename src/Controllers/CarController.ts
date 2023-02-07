@@ -19,7 +19,7 @@ export default class CarController {
     const body: ICar = { ...this.req.body };
     try {
       const newCar = await this.service.addNewCar(body);
-      return this.res.status(200).json(newCar);
+      return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
     }

@@ -5,4 +5,4 @@ const routes = Router();
 
 routes.use('/cars', carRouter);
 
-export default Router;
+export default routes;
