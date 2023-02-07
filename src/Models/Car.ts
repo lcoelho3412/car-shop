@@ -14,7 +14,16 @@ export default abstract class CarODM<T> {
   public async find(): Promise<T[]> {
     return this.model.find();
   }
+
+  public async findAll(): Promise<T[]> {
+    return this.model.find({});
+  }
+
   public async create(obj: T): Promise<T> {
     return this.model.create({ ...obj });
+  }
+
+  public async findById(id: string): Promise<T | null> {
+    return this.model.findById(id);
   }
 }

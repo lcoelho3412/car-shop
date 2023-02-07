@@ -14,11 +14,20 @@ export default class CarService {
   }
 
   public async getAllCars() {
-    const carODM = new CarODM();
-    const carsList = await carODM.find();
+    const allVehicle = new CarODM();
+    const carsList = await allVehicle.find();
     if (carsList.length === 0) {
       return carsList;
     }
     return carsList.map((car) => this.createCarDomain(car));
+  }
+
+  public async getById(id:string) {
+    const oneVehicle = new CarODM();
+    const oneCarData = await oneVehicle.findById(id);
+    if (!oneCarData) {
+      throw new Error('Car not found');
+    }
+    return this.createCarDomain(oneCarData as ICar);
   }
 }
