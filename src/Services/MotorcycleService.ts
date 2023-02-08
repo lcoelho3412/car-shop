@@ -26,7 +26,7 @@ export default class MotorcycleService {
     const oneVehicle = new MotorcycleODM();
     const oneCarData = await oneVehicle.findById(id);
     if (!oneCarData) {
-      throw new Error('Car not found');
+      throw new Error('Motorcycle not found');
     }
     return this.createCarDomain(oneCarData as IMotorcycle);
   }
