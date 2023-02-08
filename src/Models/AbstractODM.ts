@@ -32,6 +32,7 @@ export default abstract class AbstractODM<T> {
   public async updateById(id: string, body: ICar | IMotorcycle) {
     return this.model.findByIdAndUpdate(id, body);
   }
+  
   public async deleteById(id: string) {
     return this.model.findByIdAndDelete(id);
   }
