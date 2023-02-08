@@ -1,5 +1,6 @@
 import { Model, model, models, Schema } from 'mongoose';
 import ICar from '../Interfaces/ICar';
+import IMotorcycle from '../Interfaces/IMotorcycle';
 
 export default abstract class CarODM<T> {
   protected model: Model<T>;
@@ -28,7 +29,10 @@ export default abstract class CarODM<T> {
     return this.model.findById(id);
   }
 
-  public async updateById(id: string, body: ICar) {
+  public async updateById(id: string, body: ICar | IMotorcycle) {
     return this.model.findByIdAndUpdate(id, body);
+  }
+  public async deleteById(id: string) {
+    return this.model.findByIdAndDelete(id);
   }
 }

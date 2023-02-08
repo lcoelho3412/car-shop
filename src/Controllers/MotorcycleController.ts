@@ -1,35 +1,35 @@
 import { NextFunction, Request, Response } from 'express';
-import ICar from '../Interfaces/ICar';
-import CarService from '../Services/CarService';
+import IMotorcycle from '../Interfaces/IMotorcycle';
+import MotorcycleService from '../Services/MotorcycleService';
 import ValidateObjectId from '../utils/ValidateObjectId';
 
 export default class CarController {
   private req: Request;
   private res: Response;
   private next: NextFunction;
-  private service: CarService;
+  private service: MotorcycleService;
   private validateObjectId = new ValidateObjectId();
 
   constructor(req: Request, res: Response, next: NextFunction) {
     this.req = req;
     this.res = res;
     this.next = next;
-    this.service = new CarService();
+    this.service = new MotorcycleService();
   }
 
-  public async addNewCar() {
-    const body: ICar = { ...this.req.body };
+  public async addNewMotorcycleController() {
+    const body: IMotorcycle = { ...this.req.body };
     try {
-      const newCar = await this.service.addNewCar(body);
+      const newCar = await this.service.addMotorcycle(body);
       return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
     }
   }
 
-  public async getAllCars() {
+  public async getAllMotorcycleControllers() {
     try {
-      const carsList = await this.service.getAllCars();
+      const carsList = await this.service.getAllMotorcycle();
       return this.res.status(200).json(carsList);
     } catch (error) {
       this.next(error);

@@ -11,4 +11,6 @@ routes.get('/:id', (req, res, next) => new CarController(req, res, next).getById
 
 routes.put('/:id', (req, res, next) => new CarController(req, res, next).updateById());
 
+routes.delete('/:id', (req, res, next) => new CarController(req, res, next).deleteVehicle());
+
 export default routes;

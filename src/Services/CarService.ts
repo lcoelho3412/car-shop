@@ -37,4 +37,10 @@ export default class CarService {
     await updateVehicle.updateById(id, body);
     return this.createCarDomain({ id, ...body });
   }
+
+  public async deleteVehicle(id: string) {
+    await this.getById(id);
+    const deleteVehicle = new CarODM();
+    await deleteVehicle.deleteById(id);
+  }
 }
